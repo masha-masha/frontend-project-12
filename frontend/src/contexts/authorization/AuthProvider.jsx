@@ -4,9 +4,14 @@ import { useState } from "react";
 const AuthProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false);
   
-    const logIn = () => setLoggedIn(true);
+    const logIn = (token, username) => {
+      localStorage.setItem('token', token);
+      localStorage.setItem('username', username);
+      setLoggedIn(true);
+    };
     const logOut = () => {
-      localStorage.removeItem('userId');
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
       setLoggedIn(false);
     };
   

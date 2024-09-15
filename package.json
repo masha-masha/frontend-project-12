@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.4"
+    "@hexlet/chat-server": "^2.0.4",
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "react-toastify": "^10.0.5"
   }
 }

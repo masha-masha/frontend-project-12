@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Sep 15 12:59:24 2024
+# Make data base, printed on Tue Oct  8 21:48:31 2024
 
 # Variables
 
@@ -52,8 +52,6 @@ CURDIR := /home/maria/frontend-project-12
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
-# environment
-VSCODE_L10N_BUNDLE_LOCATION = vscode-local:/c%3A/Users/yanke/.vscode/extensions/ms-ceintl.vscode-language-pack-ru-1.93.2024091109/translations/extensions/vscode.json-language-features.i18n.json
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -79,7 +77,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"userLocale":"ru","osLocale":"ru","resolvedLanguage":"en","defaultMessagesFile":"/home/maria/.vscode-server/bin/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/out/nls.messages.json","locale":"ru","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"userLocale":"ru","osLocale":"ru","resolvedLanguage":"ru","defaultMessagesFile":"/home/maria/.vscode-server/bin/d78a74bcdfad14d5d3b1b782f87255d802b57511/out/nls.messages.json","languagePack":{"translationsConfigFile":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/tcf.json","messagesFile":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/d78a74bcdfad14d5d3b1b782f87255d802b57511/nls.messages.json","corruptMarkerFile":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/corrupted.info"},"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"e1b64261a95141995f0f99120c77ec77.ru","_languagePackSupport":true,"_translationsConfigFile":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/tcf.json","_cacheRoot":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru","_resolvedLanguagePackCoreLocation":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/d78a74bcdfad14d5d3b1b782f87255d802b57511","_corruptedFile":"/home/maria/.vscode-server/data/clp/e1b64261a95141995f0f99120c77ec77.ru/corrupted.info"}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile
@@ -93,7 +91,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/maria/.vscode-server/bin/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/bin/remote-cli:/home/maria/.asdf/shims:/home/maria/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/yanke/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/yanke/AppData/Roaming/npm:/mnt/c/Users/yanke/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+PATH = /home/maria/.vscode-server/bin/d78a74bcdfad14d5d3b1b782f87255d802b57511/bin/remote-cli:/home/maria/.asdf/shims:/home/maria/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/yanke/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/yanke/AppData/Roaming/npm:/mnt/c/Users/yanke/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -113,13 +111,13 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 +F = $(notdir $+)
 # environment
-WSL_INTEROP = /run/WSL/444_interop
+WSL_INTEROP = /run/WSL/431_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = maria
 # environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/yanke/.vscode/extensions/ms-vscode-remote.remote-wsl-0.88.3
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/yanke/.vscode/extensions/ms-vscode-remote.remote-wsl-0.88.4
 # environment
 ASDF_DIR = /home/maria/.asdf
 # makefile
@@ -131,11 +129,11 @@ USER = maria
 # default
 MAKE_VERSION := 4.3
 # environment
-_ = /home/maria/.vscode-server/bin/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/node
+_ = /home/maria/.vscode-server/bin/d78a74bcdfad14d5d3b1b782f87255d802b57511/node
 # environment
 XDG_RUNTIME_DIR = /run/user/1000/
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-0e992bb1-8936-4101-8943-d849233bbd29.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-a12e8d75-310d-4f58-a618-894cd3e98e7f.sock
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -155,7 +153,7 @@ WSL_DISTRO_NAME = Ubuntu-22.04
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=2/102=2%
+# Load=71/1024=7%, Rehash=0, Collisions=1/101=1%
 
 # Pattern-specific Variable Values
 
@@ -264,7 +262,7 @@ lint-frontend:
 # strcache performance: lookups = 37 / hit rate = 32%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Sun Sep 15 12:59:24 2024
+# Finished Make data base on Tue Oct  8 21:48:31 2024
 
  
 make: *** No rule to make target 'all'.  Stop.

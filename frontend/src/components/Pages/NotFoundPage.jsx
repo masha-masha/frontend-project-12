@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import routes from "../../utils/routes";
-import notFoundImage from "../../assets/page404.svg";
+import notFoundImage from "../../assets/notFound.jpg";
 
 export const NotFoundPage = () => {
   return (
@@ -8,8 +8,7 @@ export const NotFoundPage = () => {
       <img
         src={notFoundImage}
         alt="Страница не найдена"
-        className="img-fluid h-25"
-        width={300}
+        className="img-fluid h-25 rounded-circle"
       />
       <h1 className="h4 text-muted">Страница не найдена</h1>
       <p>

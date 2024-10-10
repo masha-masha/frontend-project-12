@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import Container from '../PagesComponents/Chat/Container';
+import ChatContainer from '../PagesComponents/Chat/ChatContainer';
 
-export const HomePage = () => {
+export const ChatPage = () => {
   const navigate = useNavigate(); 
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export const HomePage = () => {
     }
   }, );
   return (
-    <Container/>
+    <ChatContainer/>
   );
 };
 

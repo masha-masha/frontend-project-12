@@ -24,7 +24,6 @@ const LoginForm = () => {
   
         try {
           const res = await axios.post(routes.loginApiPath(), values);
-          console.log(res.data.token)
           auth.logIn(res.data.token, values.username);
           navigate(routes.mainPagePath());
         } catch (err) {

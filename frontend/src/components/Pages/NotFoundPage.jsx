@@ -4,7 +4,7 @@ import notFoundImage from "../../assets/notFound.jpg";
 
 export const NotFoundPage = () => {
   return (
-    <div class="text-center mt-5">
+    <div className="text-center mt-5">
       <img
         src={notFoundImage}
         alt="Страница не найдена"
@@ -12,7 +12,7 @@ export const NotFoundPage = () => {
       />
       <h1 className="h4 text-muted">Страница не найдена</h1>
       <p>
-        "Но вы можете перейти "<Link to={routes.mainPagePath()}>на главную страницу</Link>
+        Но вы можете перейти <Link to={routes.mainPagePath()}>на главную страницу</Link>
       </p>
     </div>
   );

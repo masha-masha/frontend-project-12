@@ -7,16 +7,15 @@ import {
 } from "../../../store/api/chatApi";
 import MessagesBox from "./MessagesBox";
 
-
 const MessagesContainer = () => {
   const activeChannel = useSelector(activeChannelSelector);
   const channelId = activeChannel.id;
- 
+
   const { data: messages } = useGetMessagesQuery();
   const channelMessages = messages?.filter(
     (message) => message.channelId === channelId
-  );
-  const countOfmessages = channelMessages?.length  || 0;
+  )
+  const countOfmessages = channelMessages?.length || 0;
   const [addMessage] = useAddMessageMutation();
   const username = localStorage.getItem("username");
 
@@ -32,12 +31,11 @@ const MessagesContainer = () => {
         <MessagesBox channelMessages={channelMessages} />
         <div className='mt-auto px-5 py-3'>
           <MessagesForm
-          channelId={channelId}
-          username={username}
-          addMessage={addMessage}
-        />
+            channelId={channelId}
+            username={username}
+            addMessage={addMessage}
+          />
         </div>
-       
       </div>
     </div>
   );

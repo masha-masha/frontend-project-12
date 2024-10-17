@@ -16,6 +16,9 @@ const addSocketListener = async (
    updateCachedData((draft) => {
     if (event === 'newChannel') {
      draft.push(payload);
+    }
+     else if (event === 'newMessage') {
+      draft.push(payload);
     } else if (event === 'renameChannel') {
      const channel = draft.find((c) => c.id === payload.id);
      if (channel) {

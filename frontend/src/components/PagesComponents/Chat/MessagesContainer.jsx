@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 import { activeChannelSelector } from "../../../store/slices/activeChannelSlice";
 import MessagesForm from "./MessagesForm";
 import {
@@ -10,12 +11,12 @@ import MessagesBox from "./MessagesBox";
 const MessagesContainer = () => {
   const activeChannel = useSelector(activeChannelSelector);
   const channelId = activeChannel.id;
-
+  const { t } = useTranslation();
   const { data: messages } = useGetMessagesQuery();
   const channelMessages = messages?.filter(
     (message) => message.channelId === channelId
   )
-  const countOfmessages = channelMessages?.length || 0;
+  const count = channelMessages?.length || 0;
   const [addMessage] = useAddMessageMutation();
   const username = localStorage.getItem("username");
 
@@ -26,7 +27,7 @@ const MessagesContainer = () => {
           <p className='m-0'>
             <b>{`# ${activeChannel.name}`}</b>
           </p>
-          <span className='text-muted'>{countOfmessages} сообщ.</span>
+          <span className='text-muted'>{t('chatBox.messages', { count })}</span>
         </div>
         <MessagesBox channelMessages={channelMessages} />
         <div className='mt-auto px-5 py-3'>
@@ -34,6 +35,7 @@ const MessagesContainer = () => {
             channelId={channelId}
             username={username}
             addMessage={addMessage}
+            t={t}
           />
         </div>
       </div>

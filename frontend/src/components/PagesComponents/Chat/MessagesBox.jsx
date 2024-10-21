@@ -1,6 +1,6 @@
 import React from "react";
 
-const MessagesBox = ({channelMessages}) => {
+const MessagesBox = ({ channelMessages }) => {
 
   return (
     <div id='messages-box' className='chat-messages overflow-auto px-5 '>

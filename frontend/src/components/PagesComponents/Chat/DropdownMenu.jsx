@@ -9,6 +9,7 @@ const DropdownMenu = ({
   openModal,
   modalType,
   channel,
+  t,
 }) => {
   const activeChannel = useSelector(activeChannelSelector);
 
@@ -20,14 +21,14 @@ const DropdownMenu = ({
         variant={activeChannel.id === channel.id ? "secondary" : ""}
         id='channelDropdown'
       >
-        <span className='visually-hidden'>Управление каналом</span>
+        <span className='visually-hidden'>{t('channel.description')}</span>
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => openModal("removing")}>
-          Удалить
+        {t('channel.deleteButton')}
         </Dropdown.Item>
         <Dropdown.Item onClick={() => openModal("renaming")}>
-          Переименовать
+        {t('channel.renameButton')}
         </Dropdown.Item>
         {renderModal(modalType, closeModal, channel)}
       </Dropdown.Menu>

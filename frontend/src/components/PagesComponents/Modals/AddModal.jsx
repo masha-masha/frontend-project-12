@@ -2,6 +2,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import { useEffect, useRef } from "react";
 import { useFormik } from "formik";
+import { useTranslation } from 'react-i18next';
 import { channelNamesShema } from "../../../utils/validate";
 import {
   useGetChannelsQuery,
@@ -14,6 +15,7 @@ import { useDispatch } from "react-redux";
 
 const AddModal = ({ closeModal }) => {
   const [addChannel] = useAddChannelMutation();
+  const { t } = useTranslation();
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((channel) => channel.name);
   const dispatch = useDispatch()
@@ -23,12 +25,12 @@ const AddModal = ({ closeModal }) => {
     initialValues: {
       name: "",
     },
-    validationSchema: channelNamesShema(channelNames),
+    validationSchema: channelNamesShema(channelNames, t),
     onSubmit: async ({ name }) => {
       try {
         const newChannel = await addChannel({ name: name});
         dispatch(setActiveChannel(newChannel.data))
-        toast.success('Канал успешно добавлен')
+        toast.success(t('toastify.success.channel.add'))
         closeModal()
       } catch (err) {
         console.log(err);
@@ -43,7 +45,7 @@ const AddModal = ({ closeModal }) => {
   return (
     <Modal show='true' onHide={closeModal} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Добавить канал</Modal.Title>
+        <Modal.Title>{t('modal.add.title')}</Modal.Title>
       </Modal.Header>
       <Form onSubmit={formik.handleSubmit}>
         <Modal.Body>
@@ -73,10 +75,10 @@ const AddModal = ({ closeModal }) => {
                 className='me-2'
                 onClick={closeModal}
               >
-                Отменить
+               {t('modal.add.cancelButton')}
               </Button>
               <Button variant='primary' type='submit'>
-                Добавить
+              {t('modal.add.submitButton')}
               </Button>
             </div>
           </Form.Group>

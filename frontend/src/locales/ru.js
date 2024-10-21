@@ -1,17 +1,25 @@
-const translation = {
+const ru = {
   translation: {
+    mainNavigation: {
+      exitButton: 'Выйти',
+      title: 'Hexlet Chat',
+    },
+    loginPage : {
+    question: 'Нет аккаунта?',
+    registration: 'Регистрация',
+    },
     loginForm: {
       title: "Войти",
       username: "Ваш ник",
       password: "Ваш пароль",
       submitButton: "Войти",
-      feedBack: "Неправильные имя или пароль"
+      feedBack: "Неправильные имя или пароль",
     },
     signupForm: {
         title: 'Регистрация',
         username: 'Имя пользователя',
         password: 'Пароль',
-        confirmPass: 'Подтвердите пароль',
+        confirmPassword: 'Подтвердите пароль',
         submitButton: 'Зарегистрироваться',
         errors: {
           usernameRange: 'От 3 до 20 символов',
@@ -41,8 +49,9 @@ const translation = {
         messages_few: '{{count}} сообщения',
         messages_many: '{{count}} сообщений',
       },
-      channels: {
-        removeButton: 'Удалить',
+      channel: {
+        description: 'Управление каналом',
+        deleteButton: 'Удалить',
         renameButton: 'Переименовать',
       },
       modal: {
@@ -58,9 +67,9 @@ const translation = {
         },
         delete: {
           title: 'Удалить канал',
-          body: 'Уверены?',
+          question: 'Уверены?',
           cancelButton: 'Отменить',
-          removeButton: 'Удалить',
+          deleteButton: 'Удалить',
         },
         rename: {
           title: 'Переименовать канал',
@@ -77,11 +86,11 @@ const translation = {
           channel: {
             add: 'Канал создан',
             rename: 'Канал переименован',
-            remove: 'Канал удалён',
+            delete: 'Канал удалён',
           },
         },
       },
   },
 };
 
-export default translation;
+export default ru;

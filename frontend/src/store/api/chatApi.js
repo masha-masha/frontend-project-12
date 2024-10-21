@@ -14,21 +14,25 @@ const addSocketListener = async (
   await cacheDataLoaded;
   const handleEvent = (payload) => {
    updateCachedData((draft) => {
-    if (event === 'newChannel') {
-     draft.push(payload);
-    }
-     else if (event === 'newMessage') {
+    switch (event) {
+     case 'newChannel':
+     case 'newMessage':
       draft.push(payload);
-    } else if (event === 'renameChannel') {
-     const channel = draft.find((c) => c.id === payload.id);
-     if (channel) {
-      channel.name = payload.name;
+      break;
+     case 'renameChannel': {
+      const channel = draft.find((c) => c.id === payload.id);
+      if (channel) {
+       channel.name = payload.name;
+      }
+      break;
      }
-    } else if (event === 'removeChannel') {
-     return draft.filter((c) => c.id !== payload.id);
+     case 'removeChannel':
+      return draft.filter((c) => c.id !== payload.id);
+     default:
+      break;
     }
    });
-  };
+  } 
   socket.on(event, handleEvent);
  } catch (e) {
   console.error(e);

@@ -2,6 +2,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import { useFormik } from "formik";
 import { useEffect, useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import { channelNamesShema } from "../../../utils/validate";
 import {
   useGetChannelsQuery,
@@ -12,11 +13,12 @@ const RenameModal = ({ closeModal, channel }) => {
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((channel) => channel.name) || [];
   const [renameChannel] = useRenameChannelMutation();
+  const { t } = useTranslation();
   const formik = useFormik({
     initialValues: {
       name: channel?.name,
     },
-    validationSchema: channelNamesShema(channelNames),
+    validationSchema: channelNamesShema(channelNames, t),
     onSubmit: async ({ name }) => {
       const updatedChannel = {
         id: channel.id,
@@ -24,7 +26,7 @@ const RenameModal = ({ closeModal, channel }) => {
       };
       try {
         await renameChannel(updatedChannel);
-        toast.success('Канал успешно переименован')
+        toast.success(t('toastify.success.channel.rename'))
         closeModal();
       } catch (err) {
         console.log(err);
@@ -39,7 +41,7 @@ const RenameModal = ({ closeModal, channel }) => {
   return (
     <Modal show='true' onHide={closeModal} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Переименовать канал</Modal.Title>
+        <Modal.Title>{t('modal.rename.title')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
@@ -55,7 +57,7 @@ const RenameModal = ({ closeModal, channel }) => {
               value={formik.values.name}
             />
             <Form.Label htmlFor='renameChannel' className='visually-hidden'>
-              Добавить
+            {t('modal.rename.title')}
             </Form.Label>
             {formik.touched.name && formik.errors.name && (
               <Form.Control.Feedback type='invalid'>
@@ -69,10 +71,10 @@ const RenameModal = ({ closeModal, channel }) => {
                 className='me-2'
                 onClick={closeModal}
               >
-                Отменить
+               {t('modal.rename.cancelButton')}
               </Button>
               <Button variant='primary' type='submit'>
-                Переименовать
+              {t('modal.rename.submitButton')}
               </Button>
             </div>
           </Form.Group>

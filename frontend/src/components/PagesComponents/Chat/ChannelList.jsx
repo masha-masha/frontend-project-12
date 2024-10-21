@@ -3,13 +3,14 @@ import { useGetChannelsQuery } from "../../../store/api/chatApi";
 import Loading from "../Loading";
 import DropdownMenu from "./DropdownMenu";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 import { openModal, closeModal } from "../../../store/slices/modalSlice";
 import getModal from "../Modals";
 
-const Title = ({ renderModal, closeModal, openModal, modalType }) => {
+const Title = ({ renderModal, closeModal, openModal, modalType, t }) => {
   return (
     <div className='d-flex mt-1 justify-content-between mb-2 ps-4 pe-2 p-4'>
-      <b>Каналы</b>
+      <b>{t('chatPage.title')}</b>
       <button
         type='button'
         className='p-0 text-primary btn btn-group-vertical'
@@ -23,6 +24,7 @@ const Title = ({ renderModal, closeModal, openModal, modalType }) => {
 };
 
 const ChannelsList = () => {
+  const { t } = useTranslation();
   const modalType = useSelector((state) => state.modal.modalType);
   const dispatch = useDispatch();
   const renderModal = (modalType, closeModal, channel) => {
@@ -45,6 +47,7 @@ const ChannelsList = () => {
         modalType={modalType}
         closeModal={handleCloseModal}
         openModal={handleOpenModal}
+        t={t}
       />
       <ul
         id='channels-box'
@@ -60,6 +63,7 @@ const ChannelsList = () => {
                 closeModal={handleCloseModal}
                 openModal={handleOpenModal}
                 channel={channel}
+                t={t}
               />
             ) : (
               <ChannelItem channel={channel} />

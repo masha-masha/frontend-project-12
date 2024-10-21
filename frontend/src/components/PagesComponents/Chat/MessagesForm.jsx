@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import MessageInputButton from "./MessageInputButton";
 import EmojiContainer from "./EmojiContainer";
 
-const MessagesForm = ({ channelId, addMessage, username }) => {
+const MessagesForm = ({ channelId, addMessage, username, t }) => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const inputRef = useRef(null);
@@ -53,8 +53,8 @@ const MessagesForm = ({ channelId, addMessage, username }) => {
         <Form.Control
           id='body'
           name='body'
-          aria-label='Новое сообщение'
-          placeholder='Введите сообщение...'
+          aria-label={t('messageInput.label')}
+          placeholder={t('messageInput.placeholder')}
           className='border-0 p-0 ps-2 form-control'
           value={formik.values.body}
           onChange={formik.handleChange}
@@ -63,7 +63,7 @@ const MessagesForm = ({ channelId, addMessage, username }) => {
         />
         <button type='submit' disabled='' className='btn btn-group-vertical'>
           <MessageInputButton />
-          <span className='visually-hidden'>Отправить</span>
+          <span className='visually-hidden'>{t('messageInput.submitButton')}</span>
         </button>
       </div>
       {showEmojiPicker && (

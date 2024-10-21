@@ -1,3 +1,7 @@
+import "bootstrap/dist/css/bootstrap.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, Flip} from "react-toastify";
+import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChatPage } from "./components/Pages/ChatPage";
 import { LoginPage } from "./components/Pages/LoginPage";
@@ -5,11 +9,7 @@ import { NotFoundPage } from "./components/Pages/NotFoundPage";
 import { SignUpPage } from "./components/Pages/SignUpPage";
 import MainNavigation from "./components/PagesComponents/MainNavigation";
 import routes from "./utils/routes";
-import "bootstrap/dist/css/bootstrap.css";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, Flip} from "react-toastify";
 import AuthProvider from "./contexts/authorization/AuthProvider";
-import { Provider } from "react-redux";
 import store from "./store/store";
 
 const App = () => {

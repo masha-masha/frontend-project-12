@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import filter from 'leo-profanity';
 import {
   setActiveChannel,
   activeChannelSelector,
@@ -21,7 +22,7 @@ const ChannelItem = ({ channel }) => {
       onClick={() => handleSetActiveChannel(channel)}
     >
       <span className='me-1'>#</span>
-      {channel.name}
+      {filter.clean(channel.name)}
     </button>
   );
 };

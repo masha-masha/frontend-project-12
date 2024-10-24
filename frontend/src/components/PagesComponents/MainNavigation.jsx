@@ -9,7 +9,7 @@ const MainNavigation = () => {
   return (
     <nav className='shadow-sm navbar navbar-expand-lg navbar-light bg-white'>
       <div className='container'>
-        <span className='navbar-brand'>{t('mainNavigation.title')} </span>
+        <Link className='navbar-brand' to='/'>{t('mainNavigation.title')} </Link>
         {auth.loggedIn && (
           <Link
             onClick={auth.logOut}

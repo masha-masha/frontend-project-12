@@ -28,8 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint --ext js,jsx --config .eslintrc.yml"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -45,7 +44,8 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.8.1",
-    "eslint": "^8.57.1",
+    "eslint": "^9.13.0",
+    "eslint-plugin-functional": "^7.1.0",
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^5.0.0"
   }

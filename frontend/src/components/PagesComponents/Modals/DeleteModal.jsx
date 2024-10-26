@@ -1,12 +1,11 @@
-import { Button, Form, Modal} from "react-bootstrap";
+import { Button, Form, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { useDeleteChannelMutation } from "../../../store/api/chatApi";
-import { setActiveChannel } from "../../../store/slices/activeChannelSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { useDeleteChannelMutation } from '../../../store/api/chatApi';
+import { setActiveChannel } from '../../../store/slices/activeChannelSlice';
 
-const DeleteModal = ({channel, closeModal}) => {
-  
+const DeleteModal = ({ channel, closeModal }) => {
   const defaultChannel = {
     id: '1',
     name: 'general',
@@ -15,14 +14,14 @@ const DeleteModal = ({channel, closeModal}) => {
   const [deleteChannel] = useDeleteChannelMutation();
 
   const { t } = useTranslation();
-  
+
   const dispatch = useDispatch();
-  const handleDelete =  async (channel) => {
+  const handleDelete = async (currentChannel) => {
     try {
-      await deleteChannel(channel);
-      dispatch(setActiveChannel(defaultChannel))
-      toast.success(t('toastify.success.channel.delete'))
-      closeModal()
+      await deleteChannel(currentChannel);
+      dispatch(setActiveChannel(defaultChannel));
+      toast.success(t('toastify.success.channel.delete'));
+      closeModal();
     } catch (err) {
       toast.error('Ошибка');
       throw err;
@@ -41,7 +40,7 @@ const DeleteModal = ({channel, closeModal}) => {
         </Form.Group>
       </Modal.Body>
     </Modal>
-  )
-}
+  );
+};
 
-export default DeleteModal
+export default DeleteModal;

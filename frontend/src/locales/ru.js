@@ -5,7 +5,7 @@ const ru = {
       title: 'Hexlet Chat',
     },
     loginPage: {
-      question: 'Нет аккаунта?',
+      question: 'Нет аккаунта? ',
       registration: 'Регистрация',
     },
     loginForm: {

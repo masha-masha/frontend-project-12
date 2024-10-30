@@ -53,7 +53,7 @@ export const chatApi = createApi({
           cacheEntryRemoved,
         );
       },
-      providesTags: ['Channel'],
+      providesTags: ['Channel', 'Message'],
     }),
     addChannel: builder.mutation({
       query: (newChannel) => ({
@@ -61,7 +61,7 @@ export const chatApi = createApi({
         method: 'POST',
         body: newChannel,
       }),
-      invalidatesTags: ['Channel'],
+      invalidatesTags: ['Channel', 'Message'],
     }),
     renameChannel: builder.mutation({
       query: ({ id, name }) => ({
@@ -70,7 +70,7 @@ export const chatApi = createApi({
         body: { name },
       }),
 
-      invalidatesTags: ['Channel'],
+      invalidatesTags: ['Channel', 'Message'],
     }),
     deleteChannel: builder.mutation({
       query: ({ id }) => ({
@@ -93,7 +93,7 @@ export const chatApi = createApi({
           cacheEntryRemoved,
         );
       },
-      providesTags: ['Message'],
+      providesTags: ['Message', 'Channel'],
     }),
     addMessage: builder.mutation({
       query: (newMessage) => ({

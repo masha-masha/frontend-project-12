@@ -3,17 +3,20 @@ import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { channelNamesShema } from '../../../utils/validate';
 import {
   useGetChannelsQuery,
   useRenameChannelMutation,
 } from '../../../store/api/chatApi';
+import { setActiveChannel } from '../../../store/slices/activeChannelSlice';
 
 const RenameModal = ({ closeModal, channel }) => {
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((item) => item.name) || [];
   const [renameChannel] = useRenameChannelMutation();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: channel?.name,
@@ -26,6 +29,7 @@ const RenameModal = ({ closeModal, channel }) => {
       };
       try {
         await renameChannel(updatedChannel);
+        dispatch(setActiveChannel(updatedChannel));
         toast.success(t('toastify.success.channel.rename'));
         closeModal();
       } catch (err) {

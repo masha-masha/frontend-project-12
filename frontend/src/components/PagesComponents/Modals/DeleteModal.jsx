@@ -4,13 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useDeleteChannelMutation } from '../../../store/api/chatApi';
 import { setActiveChannel } from '../../../store/slices/activeChannelSlice';
+import defaultChannel from '../../../utils/defaultChannel';
 
 const DeleteModal = ({ channel, closeModal }) => {
-  const defaultChannel = {
-    id: '1',
-    name: 'general',
-    removable: false,
-  };
   const [deleteChannel] = useDeleteChannelMutation();
 
   const { t } = useTranslation();

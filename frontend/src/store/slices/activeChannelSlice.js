@@ -1,11 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-
-const defaultChannel = {
-  id: '1',
-  name: 'general',
-  removable: false,
-};
+import defaultChannel from '../../utils/defaultChannel';
 
 const initialState = {
   activeChannel: defaultChannel,

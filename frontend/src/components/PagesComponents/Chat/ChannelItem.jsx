@@ -4,17 +4,13 @@ import {
   setActiveChannel,
   activeChannelSelector,
 } from '../../../store/slices/activeChannelSlice';
-import {
-  useGetChannelsQuery,
-} from '../../../store/api/chatApi';
+import useLiveData from '../../../hooks/useLiveData';
 
 const ChannelItem = ({ channel }) => {
   const activeChannel = useSelector(activeChannelSelector);
-  const { data: channels } = useGetChannelsQuery();
-  const checked = channels?.find((c) => c.id === activeChannel.id);
-  const cheked = checked ? activeChannel.id : '1';
+  const { activeChannelId } = useLiveData(activeChannel);
   const dispatch = useDispatch();
-  const classes = channel.id === cheked
+  const classes = channel.id === activeChannelId
     ? 'w-100 rounded-0 text-start btn btn-secondary'
     : 'w-100 rounded-0 text-start btn';
   const handleSetActiveChannel = (currentChannel) => {

@@ -3,10 +3,10 @@ import defaultChannel from '../utils/defaultChannel';
 
 const useLiveData = (channel) => {
   const { data: channels } = useGetChannelsQuery();
-  const checked = channels?.find((c) => c.id === channel.id);
-  const activeChannel = checked ? channel : defaultChannel;
+  const foundChannel = channels?.find((c) => c.id === channel.id);
+  const activeChannel = foundChannel || defaultChannel;
   const activeChannelId = activeChannel.id;
-  const activeChannelName = checked ? checked.name : defaultChannel.name;
+  const activeChannelName = activeChannel.name;
   return { activeChannelId, activeChannelName };
 };
 

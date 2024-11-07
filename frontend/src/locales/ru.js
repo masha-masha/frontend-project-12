@@ -11,7 +11,7 @@ const ru = {
     loginForm: {
       title: 'Войти',
       username: 'Ваш ник',
-      password: 'Ваш пароль',
+      password: 'Пароль',
       submitButton: 'Войти',
       feedback: 'Неправильные имя или пароль',
     },

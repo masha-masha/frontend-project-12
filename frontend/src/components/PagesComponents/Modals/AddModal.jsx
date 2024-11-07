@@ -60,7 +60,7 @@ const AddModal = ({ closeModal }) => {
               isInvalid={formik.touched.name && formik.errors.name}
             />
             <Form.Label htmlFor="addChannel" className="visually-hidden">
-              Добавить
+              Имя канала
             </Form.Label>
             {formik.touched.name && formik.errors.name && (
               <Form.Control.Feedback type="invalid">

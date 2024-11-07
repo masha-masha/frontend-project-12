@@ -74,7 +74,7 @@ const ru = {
       rename: {
         title: 'Переименовать канал',
         cancelButton: 'Отменить',
-        submitButton: 'Отправить',
+        submitButton: 'Переименовать',
       },
     },
     toastify: {

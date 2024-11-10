@@ -33,6 +33,7 @@ const MessagesForm = ({
       <div className="input-group has-validation">
         <Form.Label htmlFor="body" />
         <Form.Control
+          required
           id="body"
           name="body"
           aria-label={t('messageInput.label')}

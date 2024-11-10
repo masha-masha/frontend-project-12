@@ -38,6 +38,7 @@ const ru = {
     },
     chatPage: {
       title: 'Каналы',
+      addButton: '+',
     },
     messageInput: {
       label: 'Новое сообщение',
@@ -74,7 +75,7 @@ const ru = {
       rename: {
         title: 'Переименовать канал',
         cancelButton: 'Отменить',
-        submitButton: 'Переименовать',
+        submitButton: 'Отправить',
       },
     },
     toastify: {

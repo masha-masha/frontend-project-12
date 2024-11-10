@@ -12,7 +12,6 @@ const DropdownMenu = ({
   t,
 }) => {
   const activeChannel = useSelector(activeChannelSelector);
-
   return (
     <Dropdown as={ButtonGroup} className="me-2 w-100">
       <ChannelItem channel={channel} />
@@ -27,7 +26,7 @@ const DropdownMenu = ({
         <Dropdown.Item onClick={() => openModal('removing')}>
           {t('channel.deleteButton')}
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => openModal('renaming')}>
+        <Dropdown.Item onClick={() => openModal('renaming', channel)}>
           {t('channel.renameButton')}
         </Dropdown.Item>
         {renderModal(modalType, closeModal, channel)}

@@ -21,7 +21,7 @@ const ChannelsList = () => {
     return <Component closeModal={close} channel={channel} />;
   };
   const { data: channels, isLoading } = useGetChannelsQuery();
-  const handleOpenModal = (type) => dispatch(openModal(type));
+  const handleOpenModal = (type, channel) => dispatch(openModal({ type, channel }));
   const handleCloseModal = () => dispatch(closeModal());
   const isEditableChannel = (channel) => channel.removable;
 

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { channelNamesShema } from '../../../utils/validate';
 import {
   useGetChannelsQuery,
@@ -11,7 +11,8 @@ import {
 } from '../../../store/api/chatApi';
 import { setActiveChannel } from '../../../store/slices/activeChannelSlice';
 
-const RenameModal = ({ closeModal, channel }) => {
+const RenameModal = ({ closeModal }) => {
+  const channel = useSelector((state) => state.modal.channel);
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((item) => item.name) || [];
   const [renameChannel] = useRenameChannelMutation();
@@ -26,6 +27,7 @@ const RenameModal = ({ closeModal, channel }) => {
       const updatedChannel = {
         id: channel.id,
         name,
+        removable: true,
       };
       try {
         await renameChannel(updatedChannel);
@@ -39,9 +41,8 @@ const RenameModal = ({ closeModal, channel }) => {
   });
   const inputRef = useRef(null);
   useEffect(() => {
-    inputRef.current.focus();
-    inputRef.current.select();
-  }, []);
+    setTimeout(() => inputRef.current.select());
+  }, [channel]);
   return (
     <Modal show="true" onHide={closeModal} centered>
       <Modal.Header closeButton>

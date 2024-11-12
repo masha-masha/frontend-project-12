@@ -4,10 +4,7 @@ import { activeChannelSelector } from '../../../store/slices/activeChannelSlice'
 import ChannelItem from './ChannelItem';
 
 const DropdownMenu = ({
-  renderModal,
-  closeModal,
   openModal,
-  modalType,
   channel,
   t,
 }) => {
@@ -29,7 +26,6 @@ const DropdownMenu = ({
         <Dropdown.Item onClick={() => openModal('renaming', channel)}>
           {t('channel.renameButton')}
         </Dropdown.Item>
-        {renderModal(modalType, closeModal, channel)}
       </Dropdown.Menu>
     </Dropdown>
   );

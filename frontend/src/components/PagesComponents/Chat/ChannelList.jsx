@@ -28,9 +28,6 @@ const ChannelsList = () => {
   return (
     <div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">
       <Title
-        renderModal={renderModal}
-        modalType={modalType}
-        closeModal={handleCloseModal}
         openModal={handleOpenModal}
         t={t}
       />
@@ -43,9 +40,6 @@ const ChannelsList = () => {
           <li className="nav-item w-100" key={channel.id}>
             {isEditableChannel(channel) ? (
               <DropdownMenu
-                renderModal={renderModal}
-                modalType={modalType}
-                closeModal={handleCloseModal}
                 openModal={handleOpenModal}
                 channel={channel}
                 t={t}
@@ -56,6 +50,7 @@ const ChannelsList = () => {
           </li>
         ))}
       </ul>
+      {renderModal(modalType, handleCloseModal)}
     </div>
   );
 };

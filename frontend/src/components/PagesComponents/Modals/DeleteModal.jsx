@@ -1,14 +1,14 @@
 import { Button, Form, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useDeleteChannelMutation } from '../../../store/api/chatApi';
 import { setActiveChannel } from '../../../store/slices/activeChannelSlice';
 import defaultChannel from '../../../utils/defaultChannel';
 
-const DeleteModal = ({ channel, closeModal }) => {
+const DeleteModal = ({ closeModal }) => {
   const [deleteChannel] = useDeleteChannelMutation();
-
+  const channel = useSelector((state) => state.modal.channel);
   const { t } = useTranslation();
 
   const dispatch = useDispatch();

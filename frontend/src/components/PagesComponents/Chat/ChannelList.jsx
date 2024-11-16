@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import DropdownMenu from './DropdownMenu';
 import { openModal, closeModal } from '../../../store/slices/modalSlice';
 import getModal from '../Modals';
-import Title from './ChannelTitle';
+import ChannelTitle from './ChannelTitle';
 
 const ChannelsList = () => {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ const ChannelsList = () => {
 
   return (
     <div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">
-      <Title
+      <ChannelTitle
         openModal={handleOpenModal}
         t={t}
       />

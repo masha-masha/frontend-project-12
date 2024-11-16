@@ -9,10 +9,15 @@ This project demonstrates the use of sockets, React, and Redux for building a re
 The project consists of a client-side application built with React and a server-side application that uses sockets for real-time communication. 
 Redux is used for managing the application state.
 ### Features
-• Real-time chat with multiple users
-• User authentication and authorization
-• Adding, deleting and renaming channels
-• Sending messages
+* Real-time chat with multiple users
+* User authentication and authorization
+* Adding, deleting and renaming channels
+* Sending messages
+
+### Requirements:
+* Nodejs v21.00
+* npm v10.8.0
+  
 ## Installation and Running
 
 1. *Install Node.js and npm*
@@ -28,13 +33,13 @@ git clone git@github.com:masha-masha/frontend-project-12.git
 cd frontend-project-12
 ```
 
-3. *Install dependencies:*
+4. *Install dependencies:*
 
 ```
 npm install
 ```
 
-4. *Start the frontend and backend servers:*
+5. *Start the frontend and backend servers:*
 
 ```
 make start-frontend

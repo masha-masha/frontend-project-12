@@ -20,7 +20,7 @@ const DropdownMenu = ({
         <span className="visually-hidden">{t('channel.description')}</span>
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => openModal('removing')}>
+        <Dropdown.Item onClick={() => openModal('removing', channel)}>
           {t('channel.deleteButton')}
         </Dropdown.Item>
         <Dropdown.Item onClick={() => openModal('renaming', channel)}>

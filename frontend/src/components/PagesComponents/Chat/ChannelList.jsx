@@ -33,7 +33,7 @@ const ChannelsList = () => {
   const channelsListRef = useRef(null);
 
   useEffect(() => {
-    if (activeChannelId) {
+    if (activeChannelId === '1') {
       channelsListRef.current.scrollTop = 0;
     }
     channelsListRef.current.scrollTop = channelsListRef.current.scrollHeight;

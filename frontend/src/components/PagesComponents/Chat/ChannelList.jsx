@@ -24,7 +24,6 @@ const ChannelsList = () => {
   const handleOpenModal = (type, channel) => dispatch(openModal({ type, channel }));
   const handleCloseModal = () => dispatch(closeModal());
   const isEditableChannel = (channel) => channel.removable;
-
   return (
     <div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">
       <ChannelTitle

@@ -18,7 +18,7 @@ const RenameModal = ({ closeModal }) => {
   const { t } = useTranslation();
   const formik = useFormik({
     initialValues: {
-      name: channel?.name,
+      name: channel?.name.trim(),
     },
     validationSchema: channelNamesShema(channelNames, t),
     onSubmit: async ({ name }) => {

@@ -6,21 +6,25 @@ import { useGetChannelsQuery } from '../../../store/api/chatApi';
 import Loading from '../Loading';
 import DropdownMenu from './DropdownMenu';
 import { openModal, closeModal } from '../../../store/slices/modalSlice';
+import { activeChannelSelector } from '../../../store/slices/activeChannelSlice';
 import getModal from '../Modals';
 import ChannelTitle from './ChannelTitle';
+
+const renderModal = (type, close, channel) => {
+  if (!type) {
+    return null;
+  }
+
+  const Component = getModal(type);
+  return <Component closeModal={close} channel={channel} />;
+};
 
 const ChannelsList = () => {
   const { t } = useTranslation();
   const modalType = useSelector((state) => state.modal.modalType);
+  const activeChannel = useSelector(activeChannelSelector);
+  const activeChannelId = activeChannel.id;
   const dispatch = useDispatch();
-  const renderModal = (type, close, channel) => {
-    if (!type) {
-      return null;
-    }
-
-    const Component = getModal(type);
-    return <Component closeModal={close} channel={channel} />;
-  };
   const { data: channels, isLoading } = useGetChannelsQuery();
   const handleOpenModal = (type, channel) => dispatch(openModal({ type, channel }));
   const handleCloseModal = () => dispatch(closeModal());
@@ -29,8 +33,11 @@ const ChannelsList = () => {
   const channelsListRef = useRef(null);
 
   useEffect(() => {
+    if (activeChannelId) {
+      channelsListRef.current.scrollTop = 0;
+    }
     channelsListRef.current.scrollTop = channelsListRef.current.scrollHeight;
-  }, [channels]);
+  }, [channels, activeChannelId]);
 
   return (
     <div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">

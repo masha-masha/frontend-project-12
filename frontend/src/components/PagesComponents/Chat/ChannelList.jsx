@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import ChannelItem from './ChannelItem';
+import useLiveData from '../../../hooks/useLiveData';
 import { useGetChannelsQuery } from '../../../store/api/chatApi';
 import Loading from '../Loading';
 import DropdownMenu from './DropdownMenu';
@@ -23,7 +24,7 @@ const ChannelsList = () => {
   const { t } = useTranslation();
   const modalType = useSelector((state) => state.modal.modalType);
   const activeChannel = useSelector(activeChannelSelector);
-  const activeChannelId = activeChannel.id;
+  const { activeChannelId } = useLiveData(activeChannel);
   const dispatch = useDispatch();
   const { data: channels, isLoading } = useGetChannelsQuery();
   const handleOpenModal = (type, channel) => dispatch(openModal({ type, channel }));
@@ -33,10 +34,15 @@ const ChannelsList = () => {
   const channelsListRef = useRef(null);
 
   useEffect(() => {
-    if (activeChannelId === '1') {
-      channelsListRef.current.scrollTop = 0;
-    }
-    channelsListRef.current.scrollTop = channelsListRef.current.scrollHeight;
+    requestAnimationFrame(() => {
+      if (channelsListRef.current) {
+        if (activeChannelId === '1') {
+          channelsListRef.current.scrollTop = 0;
+        } else {
+          channelsListRef.current.scrollTop = channelsListRef.current.scrollHeight;
+        }
+      }
+    });
   }, [channels, activeChannelId]);
 
   return (

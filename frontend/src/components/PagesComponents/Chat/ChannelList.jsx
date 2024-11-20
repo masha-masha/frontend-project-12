@@ -9,6 +9,7 @@ import DropdownMenu from './DropdownMenu';
 import { openModal, closeModal } from '../../../store/slices/modalSlice';
 import { activeChannelSelector } from '../../../store/slices/activeChannelSlice';
 import getModal from '../Modals';
+import defaultChannel from '../../../utils/defaultChannel';
 import ChannelTitle from './ChannelTitle';
 
 const renderModal = (type, close, channel) => {
@@ -36,7 +37,7 @@ const ChannelsList = () => {
   useEffect(() => {
     requestAnimationFrame(() => {
       if (channelsListRef.current) {
-        if (activeChannelId === '1') {
+        if (activeChannelId === defaultChannel.id) {
           channelsListRef.current.scrollTop = 0;
         } else {
           channelsListRef.current.scrollTop = channelsListRef.current.scrollHeight;

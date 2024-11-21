@@ -4,6 +4,7 @@ const routes = {
   mainPagePath: () => '/',
   loginPagePath: () => '/login',
   signUpPagePath: () => '/signup',
+  signUpApiPath: () => [apiPath, 'signup'].join('/'),
   loginApiPath: () => [apiPath, 'login'].join('/'),
 };
 

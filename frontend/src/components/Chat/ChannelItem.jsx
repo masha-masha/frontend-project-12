@@ -3,8 +3,8 @@ import filter from 'leo-profanity';
 import {
   setActiveChannel,
   activeChannelSelector,
-} from '../../../store/slices/activeChannelSlice';
-import useLiveData from '../../../hooks/useLiveData';
+} from '../../store/slices/activeChannelSlice';
+import useLiveData from '../../hooks/useLiveData';
 
 const ChannelItem = ({ channel }) => {
   const activeChannel = useSelector(activeChannelSelector);

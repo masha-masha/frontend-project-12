@@ -4,11 +4,11 @@ import { useFormik } from 'formik';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { channelNamesShema } from '../../../utils/validate';
+import { channelNamesShema } from '../../utils/validate';
 import {
   useGetChannelsQuery,
   useRenameChannelMutation,
-} from '../../../store/api/chatApi';
+} from '../../store/api/chatApi';
 
 const RenameModal = ({ closeModal }) => {
   const channel = useSelector((state) => state.modal.channel);

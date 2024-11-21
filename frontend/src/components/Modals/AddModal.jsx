@@ -4,14 +4,14 @@ import { useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { channelNamesShema } from '../../../utils/validate';
+import { channelNamesShema } from '../../utils/validate';
 import {
   useGetChannelsQuery,
   useAddChannelMutation,
-} from '../../../store/api/chatApi';
+} from '../../store/api/chatApi';
 import {
   setActiveChannel,
-} from '../../../store/slices/activeChannelSlice';
+} from '../../store/slices/activeChannelSlice';
 
 const AddModal = ({ closeModal }) => {
   const [addChannel] = useAddChannelMutation();

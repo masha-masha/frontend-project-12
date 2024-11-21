@@ -1,7 +1,7 @@
-import RegistrationForm from '../PagesComponents/RegistrationForm';
-import Image from '../PagesComponents/Image';
-import Container from '../PagesComponents/Container';
-import registration from '../../assets/registration.jpg';
+import RegistrationForm from '../components/PagesComponents/RegistrationForm';
+import Image from '../components/PagesComponents/Image';
+import Container from '../components/PagesComponents/Container';
+import registration from '../assets/registration.jpg';
 
 const SignUpPage = () => (
   <Container>

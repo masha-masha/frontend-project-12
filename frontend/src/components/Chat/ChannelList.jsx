@@ -2,14 +2,14 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import ChannelItem from './ChannelItem';
-import useLiveData from '../../../hooks/useLiveData';
-import { useGetChannelsQuery } from '../../../store/api/chatApi';
-import Loading from '../Loading';
+import useLiveData from '../../hooks/useLiveData';
+import { useGetChannelsQuery } from '../../store/api/chatApi';
+import Loading from '../PagesComponents/Loading';
 import DropdownMenu from './DropdownMenu';
-import { openModal, closeModal } from '../../../store/slices/modalSlice';
-import { activeChannelSelector } from '../../../store/slices/activeChannelSlice';
+import { openModal, closeModal } from '../../store/slices/modalSlice';
+import { activeChannelSelector } from '../../store/slices/activeChannelSlice';
 import getModal from '../Modals';
-import defaultChannel from '../../../utils/defaultChannel';
+import defaultChannel from '../../utils/defaultChannel';
 import ChannelTitle from './ChannelTitle';
 
 const renderModal = (type, close, channel) => {

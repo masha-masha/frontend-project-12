@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import authorization from '../../assets/authorization.jpg';
-import Image from '../PagesComponents/Image';
-import LoginForm from '../PagesComponents/LoginForm';
-import routes from '../../utils/routes';
-import Container from '../PagesComponents/Container';
+import authorization from '../assets/authorization.jpg';
+import Image from '../components/PagesComponents/Image';
+import LoginForm from '../components/PagesComponents/LoginForm';
+import routes from '../utils/routes';
+import Container from '../components/PagesComponents/Container';
 
 const LoginPage = () => {
   const { t } = useTranslation();

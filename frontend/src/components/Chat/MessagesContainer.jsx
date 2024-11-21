@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import filter from 'leo-profanity';
-import { activeChannelSelector } from '../../../store/slices/activeChannelSlice';
-import useLiveData from '../../../hooks/useLiveData';
+import { activeChannelSelector } from '../../store/slices/activeChannelSlice';
+import useLiveData from '../../hooks/useLiveData';
 import MessagesForm from './MessagesForm';
 import {
   useGetMessagesQuery,
   useAddMessageMutation,
-} from '../../../store/api/chatApi';
+} from '../../store/api/chatApi';
 import MessagesBox from './MessagesBox';
 
 const MessageBoxWrapper = ({ children }) => (

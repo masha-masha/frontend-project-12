@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Dropdown, ButtonGroup } from 'react-bootstrap';
-import { activeChannelSelector } from '../../../store/slices/activeChannelSlice';
+import { activeChannelSelector } from '../../store/slices/activeChannelSlice';
 import ChannelItem from './ChannelItem';
 
 const DropdownMenu = ({

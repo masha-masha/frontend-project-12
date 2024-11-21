@@ -28,6 +28,7 @@ const AddModal = ({ closeModal }) => {
     onSubmit: async ({ name }) => {
       try {
         const newChannel = await addChannel({ name });
+        console.log(newChannel);
         dispatch(setActiveChannel(newChannel.data));
         toast.success(t('toastify.success.channel.add'));
         closeModal();

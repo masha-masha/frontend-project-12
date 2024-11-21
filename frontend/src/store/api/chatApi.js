@@ -53,13 +53,13 @@ export const chatApi = createApi({
           cacheEntryRemoved,
         );
       },
-      providesTags: ['Channel', 'Message'],
+      providesTags: ['Channel'],
     }),
     addChannel: builder.mutation({
-      query: (newChannel) => ({
+      query: (channelName) => ({
         url: 'channels',
         method: 'POST',
-        body: newChannel,
+        body: channelName,
       }),
       invalidatesTags: ['Channel', 'Message'],
     }),

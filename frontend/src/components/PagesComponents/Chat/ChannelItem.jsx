@@ -9,6 +9,7 @@ import useLiveData from '../../../hooks/useLiveData';
 const ChannelItem = ({ channel }) => {
   const activeChannel = useSelector(activeChannelSelector);
   const { activeChannelId } = useLiveData(activeChannel);
+  console.log(activeChannelId);
   const dispatch = useDispatch();
   const classes = channel.id === activeChannelId
     ? 'w-100 rounded-0 text-start text-truncate btn btn-secondary'

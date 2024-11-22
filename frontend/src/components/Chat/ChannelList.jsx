@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import ChannelItem from './ChannelItem';
 import useLiveData from '../../hooks/useLiveData';
-import { useGetChannelsQuery } from '../../store/api/chatApi';
 import Loading from '../PagesComponents/Loading';
 import DropdownMenu from './DropdownMenu';
 import { openModal, closeModal } from '../../store/slices/modalSlice';
@@ -25,9 +24,8 @@ const ChannelsList = () => {
   const { t } = useTranslation();
   const modalType = useSelector((state) => state.modal.modalType);
   const activeChannel = useSelector(activeChannelSelector);
-  const { activeChannelId } = useLiveData(activeChannel);
+  const { activeChannelId, channels, isLoading } = useLiveData(activeChannel);
   const dispatch = useDispatch();
-  const { data: channels, isLoading } = useGetChannelsQuery();
   const handleOpenModal = (type, channel) => dispatch(openModal({ type, channel }));
   const handleCloseModal = () => dispatch(closeModal());
   const isEditableChannel = (channel) => channel.removable;

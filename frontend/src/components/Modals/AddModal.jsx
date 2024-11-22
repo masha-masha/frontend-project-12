@@ -14,7 +14,7 @@ import {
 } from '../../store/slices/activeChannelSlice';
 
 const AddModal = ({ closeModal }) => {
-  const [addChannel] = useAddChannelMutation();
+  const [addChannel, { isLoading }] = useAddChannelMutation();
   const { t } = useTranslation();
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((channel) => channel.name);
@@ -76,7 +76,7 @@ const AddModal = ({ closeModal }) => {
               >
                 {t('modal.add.cancelButton')}
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" isLoading={isLoading}>
                 {t('modal.add.submitButton')}
               </Button>
             </div>

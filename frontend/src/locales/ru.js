@@ -4,6 +4,13 @@ const ru = {
       exitButton: 'Выйти',
       title: 'Hexlet Chat',
     },
+    image: {
+      login: 'регистрация',
+      signup: 'авторизация',
+    },
+    loading: {
+      text: 'Загрузка...',
+    },
     loginPage: {
       question: 'Нет аккаунта? ',
       registration: 'Регистрация',
@@ -83,6 +90,7 @@ const ru = {
       error: {
         connectionError: 'Ошибка соединения',
         authError: 'Ошибка авторизации',
+        commonError: 'Ошибка',
       },
       success: {
         channel: {

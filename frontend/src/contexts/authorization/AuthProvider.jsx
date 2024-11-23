@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import AuthContext from './AuthContext';
 
 const AuthProvider = ({ children }) => {
@@ -20,11 +20,18 @@ const AuthProvider = ({ children }) => {
       setLoggedIn(true);
     }
   }, []);
+  const authValue = useMemo(
+    () => ({
+      loggedIn,
+      logIn,
+      logOut,
+    }),
+    [loggedIn],
+  );
 
   return (
-    <AuthContext.Provider value={{ loggedIn, logIn, logOut }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );
 };
+
 export default AuthProvider;

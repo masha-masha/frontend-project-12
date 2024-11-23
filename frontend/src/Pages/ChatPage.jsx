@@ -1,19 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 import ChatContainer from '../components/Chat/ChatContainer';
+import LoginPage from './LoginPage';
 
 const ChatPage = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      navigate('/login');
-    }
-  }, []);
-  return (
-    <ChatContainer />
-  );
+  const { loggedIn } = useAuth();
+  return loggedIn ? <ChatContainer /> : <LoginPage />;
 };
 export default ChatPage;

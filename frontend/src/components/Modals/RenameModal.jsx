@@ -1,5 +1,6 @@
 import { Button, Form, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import filter from 'leo-profanity';
 import { useFormik } from 'formik';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,7 @@ const RenameModal = ({ closeModal }) => {
   const { t } = useTranslation();
   const formik = useFormik({
     initialValues: {
-      name: channel?.name.trim(),
+      name: filter.clean(channel?.name.trim()),
     },
     validationSchema: channelNamesShema(channelNames, t),
     onSubmit: async ({ name }) => {

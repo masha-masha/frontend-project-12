@@ -12,7 +12,7 @@ const LoginPage = () => {
   return (
     <Container>
       <div className="card-body row p-5">
-        <Image image={authorization} />
+        <Image image={authorization} alt={t('image.login')} />
         <LoginForm />
       </div>
       <div className="card-footer p-4">

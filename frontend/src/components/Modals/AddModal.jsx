@@ -1,5 +1,6 @@
 import { Button, Form, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import filter from 'leo-profanity';
 import { useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +15,7 @@ import {
 } from '../../store/slices/activeChannelSlice';
 
 const AddModal = ({ closeModal }) => {
-  const [addChannel, { isLoading }] = useAddChannelMutation();
+  const [addChannel] = useAddChannelMutation();
   const { t } = useTranslation();
   const { data: channels } = useGetChannelsQuery();
   const channelNames = channels?.map((channel) => channel.name);
@@ -27,7 +28,8 @@ const AddModal = ({ closeModal }) => {
     validationSchema: channelNamesShema(channelNames, t),
     onSubmit: async ({ name }) => {
       try {
-        const newChannel = await addChannel({ name });
+        const filteredName = filter.clean(name);
+        const newChannel = await addChannel({ name: filteredName });
         dispatch(setActiveChannel(newChannel.data));
         toast.success(t('toastify.success.channel.add'));
         closeModal();
@@ -76,7 +78,7 @@ const AddModal = ({ closeModal }) => {
               >
                 {t('modal.add.cancelButton')}
               </Button>
-              <Button variant="primary" type="submit" isLoading={isLoading}>
+              <Button variant="primary" type="submit">
                 {t('modal.add.submitButton')}
               </Button>
             </div>

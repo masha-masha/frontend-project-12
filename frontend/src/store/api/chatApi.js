@@ -68,7 +68,6 @@ export const chatApi = createApi({
         method: 'PATCH',
         body: { name },
       }),
-
       invalidatesTags: ['Channel', 'Message'],
     }),
     deleteChannel: builder.mutation({
